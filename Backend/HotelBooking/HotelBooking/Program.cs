@@ -1,18 +1,20 @@
 using HotelBooking.Data;
+using HotelBooking.Extensions;
+using HotelBooking.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Add services to the container using extension methods
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
-builder.Services.AddDbContext<HotelBooking.Data.HotelBookingContext>(options =>
+builder.Services.AddDbContext<HotelBookingContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -21,6 +23,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Global exception handling
+app.UseMiddleware<ExceptionMiddleware>();
+
+app.UseAuthentication();
+app.UseMiddleware<JwtMiddleware>();
 app.UseAuthorization();
 
 app.MapControllers();
