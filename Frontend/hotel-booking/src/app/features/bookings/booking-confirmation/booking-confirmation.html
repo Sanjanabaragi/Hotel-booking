@@ -1,0 +1,26 @@
+<div class="success-screen-wrapper">
+  <div class="success-card">
+    <div class="success-icon-ring">🎉</div>
+    
+    <h1>Booking Confirmed!</h1>
+    <p class="tagline">Your reservation files are locked and secure. A confirmation email voucher has been dispatched.</p>
+    
+    <div class="badge-display-box">
+      <span class="label">Confirmation Number</span>
+      <strong class="code">{{ confirmationId }}</strong>
+    </div>
+
+    <p class="guidance-text">
+      You can track check-in keys, request layout adjustments, or process invoicing metrics inside your digital account panel at any time.
+    </p>
+
+    <div class="action-cluster">
+      <button class="btn-primary" routerLink="/bookings/booking-list">View My Itineraries</button>
+      <button class="btn-text-only" routerLink="/hotel-search">Return to Search Hub</button>
+    </div>
+
+    <div class="support-footer">
+      <p>Need urgent adjustments? Contact our team at <a [href]="'mailto:' + supportEmail">{{ supportEmail }}</a></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="booking-wrapper">
+  <div class="booking-grid">
+    
+    <!-- User Input Registration Data Form -->
+    <div class="form-card">
+      <h2>Guest Details</h2>
+      <form (ngSubmit)="onSubmitBooking()" #checkoutForm="ngForm">
+        
+        <div class="form-field">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" [(ngModel)]="bookingForm.fullName" required placeholder="John Doe" />
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" [(ngModel)]="bookingForm.email" required placeholder="john.doe@example.com" />
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" [(ngModel)]="bookingForm.phone" required placeholder="+1 (555) 000-0000" />
+        </div>
+
+        <div class="form-field">
+          <label for="notes">Special Requests (Optional)</label>
+          <textarea id="notes" name="notes" [(ngModel)]="bookingForm.specialRequests" rows="3" placeholder="High floors, extra pillows, early check-in, etc."></textarea>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="terms" name="agreeToTerms" [(ngModel)]="bookingForm.agreeToTerms" required />
+          <label for="terms">I verify that all guest information matches government-issued identification cards.</label>
+        </div>
+
+        <button type="submit" [disabled]="!checkoutForm.valid" class="btn-confirm-booking">
+          Authorize Secure Reservation
+        </button>
+      </form>
+    </div>
+
+    <!-- Receipt / Order Pricing Panel Summary Breakdown -->
+    <div class="receipt-card">
+      <h3>Reservation Ledger</h3>
+      <div class="ledger-item">
+        <p class="label">Room Architecture</p>
+        <p class="value">{{ roomSummary.type }}</p>
+      </div>
+      <div class="ledger-item">
+        <p class="label">Duration</p>
+        <p class="value">{{ roomSummary.nights }} Nights</p>
+      </div>
+      <div class="ledger-item">
+        <p class="label">Nightly Rate</p>
+        <p class="value">${{ roomSummary.rate }}</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="ledger-item">
+        <p class="label">Subtotal Cost</p>
+        <p class="value">${{ getCalculatedBase() }}</p>
+      </div>
+      <div class="ledger-item">
+        <p class="label">State Hospitality Fees (12%)</p>
+        <p class="value">${{ getCalculatedTax() | number:'1.2-2' }}</p>
+      </div>
+
+      <div class="total-row">
+        <p>Grand Invoice Total</p>
+        <p class="final-price">${{ getGrandTotal() | number:'1.2-2' }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

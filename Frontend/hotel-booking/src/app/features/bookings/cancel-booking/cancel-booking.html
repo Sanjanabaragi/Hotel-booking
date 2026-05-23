@@ -1,0 +1,39 @@
+<div class="cancel-wrapper">
+  <div class="cancel-form-card">
+    <h2>Cancel Your Reservation</h2>
+    <p class="warning-alert-banner">
+      ⚠️ <strong>Notice:</strong> You are initializing a structural cancellation sequence for booking <strong>{{ bookingId }}</strong> at <em>{{ hotelName }}</em>.
+    </p>
+
+    <!-- Policy Framework Logic Notice Box -->
+    <div class="policy-box" [class.eligible]="refundEligibility">
+      <h3 *ngIf="refundEligibility">🟢 Fully Refundable</h3>
+      <p *ngIf="refundEligibility">This request falls within our free modification window. 100% of the collateral invoice balance will revert to your payment card within 3-5 business days.</p>
+    </div>
+
+    <form (ngSubmit)="onExecuteCancellation()" #cancelForm="ngForm">
+      <div class="form-block">
+        <label for="reason">Why are you cancelling your stay? (Optional)</label>
+        <select id="reason" name="reason" [(ngModel)]="cancellationReason">
+          <option value="">Select a reason</option>
+          <option value="change-plans">Change of travel itinerary targets</option>
+          <option value="emergency">Personal health / work emergency</option>
+          <option value="found-better">Booked alternative accommodations elsewhere</option>
+          <option value="other">Other reason</option>
+        </select>
+      </div>
+
+      <div class="form-check-block">
+        <input type="checkbox" id="confirmDrop" name="confirmDrop" [(ngModel)]="confirmCheckbox" required />
+        <label for="confirmDrop">I understand that this action cannot be undone and my room choice will instantly open to other travelers.</label>
+      </div>
+
+      <div class="button-row">
+        <a [routerLink]="['/bookings/booking-details', bookingId]" class="btn-cancel-action">Abort & Keep Booking</a>
+        <button type="submit" class="btn-danger-confirm" [disabled]="!cancelForm.valid || isSubmitting">
+          {{ isSubmitting ? 'Processing Return Ledgers...' : 'Confirm Permanent Cancellation' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

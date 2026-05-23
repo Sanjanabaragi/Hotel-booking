@@ -1,0 +1,97 @@
+<div class="checkout-container">
+  <div class="checkout-grid">
+    
+    <!-- Payment Entry Block -->
+    <div class="card card-form">
+      <h2>Secure Payment Gateway</h2>
+      <p class="subtitle">All transactions are encrypted via 256-bit SSL protocols.</p>
+
+      <form (ngSubmit)="onProcessPayment()" #paymentFormRef="ngForm">
+        <div class="form-group">
+          <label for="cardName">Cardholder Name</label>
+          <input 
+            type="text" 
+            id="cardName" 
+            name="cardName" 
+            [(ngModel)]="paymentForm.cardName" 
+            required 
+            placeholder="Jane Doe" />
+        </div>
+
+        <div class="form-group">
+          <label for="cardNumber">Card Number</label>
+          <input 
+            type="text" 
+            id="cardNumber" 
+            name="cardNumber" 
+            [value]="paymentForm.cardNumber"
+            (input)="formatCardNumber($event)"
+            required 
+            placeholder="4111 2222 3333 4444" />
+          <small class="hint">Type '0000' at the end to simulate a banking error response.</small>
+        </div>
+
+        <div class="form-row-split">
+          <div class="form-group">
+            <label for="expiry">Expiration Date</label>
+            <input 
+              type="text" 
+              id="expiry" 
+              name="expiry" 
+              [(ngModel)]="paymentForm.expiry" 
+              required 
+              maxlength="5"
+              placeholder="MM/YY" />
+          </div>
+          
+          <div class="form-group">
+            <label for="cvv">CVV Code</label>
+            <input 
+              type="password" 
+              id="cvv" 
+              name="cvv" 
+              [(ngModel)]="paymentForm.cvv" 
+              required 
+              maxlength="4"
+              placeholder="123" />
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          class="btn-checkout" 
+          [disabled]="!paymentFormRef.valid || isProcessing">
+          {{ isProcessing ? 'Verifying with Vault Network...' : 'Authorize Transaction: $' + invoiceDetails.grandTotal }}
+        </button>
+      </form>
+    </div>
+
+    <!-- Purchase Summary Statement -->
+    <div class="card card-summary">
+      <h3>Billing Statement</h3>
+      <div class="statement-row item-desc">
+        <p>{{ invoiceDetails.item }}</p>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="statement-row">
+        <span>Room Subtotal</span>
+        <strong>${{ invoiceDetails.subtotal | number:'1.2-2' }}</strong>
+      </div>
+      
+      <div class="statement-row">
+        <span>State Lodging Tax</span>
+        <strong>${{ invoiceDetails.tax | number:'1.2-2' }}</strong>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="statement-row total-row">
+        <span>Total Due</span>
+        <span class="total-cost">${{ invoiceDetails.grandTotal | number:'1.2-2' }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>

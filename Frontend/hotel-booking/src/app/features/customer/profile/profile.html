@@ -1,0 +1,40 @@
+<div class="profile-card-view">
+  <h2>Account Profile Records</h2>
+  <p class="section-desc">Keep your contact coordinates updated to receive automated check-in notifications.</p>
+
+  <form (ngSubmit)="onUpdateProfileRecords()" #profileForm="ngForm">
+    <div class="form-row-twin">
+      <div class="form-field-unit">
+        <label for="fName">First Name</label>
+        <input type="text" id="fName" name="firstName" [(ngModel)]="profileData.firstName" required />
+      </div>
+      <div class="form-field-unit">
+        <label for="lName">Last Name</label>
+        <input type="text" id="lName" name="lastName" [(ngModel)]="profileData.lastName" required />
+      </div>
+    </div>
+
+    <div class="form-field-unit">
+      <label for="emailAddr">Account Email Contact</label>
+      <input type="email" id="emailAddr" name="email" [(ngModel)]="profileData.email" required disabled />
+      <small class="lock-notice">🔐 Email modifications require secondary security verification protocols.</small>
+    </div>
+
+    <div class="form-field-unit">
+      <label for="phoneNum">Mobile Phone Number</label>
+      <input type="tel" id="phoneNum" name="phone" [(ngModel)]="profileData.phone" required />
+    </div>
+
+    <div class="checkbox-wrapper-row">
+      <input type="checkbox" id="mktOpt" name="marketingOptIn" [(ngModel)]="profileData.marketingOptIn" />
+      <label for="mktOpt">Send me occasional flash pricing discounts on luxury weekend travel rooms.</label>
+    </div>
+
+    <div class="form-actions-footer">
+      <button type="submit" class="btn-save-profile" [disabled]="!profileForm.valid">
+        Commit Profile Changes
+      </button>
+      <span class="save-toast" *ngIf="isSavedFeedback">✓ Records written to ledger successfully.</span>
+    </div>
+  </form>
+</div>

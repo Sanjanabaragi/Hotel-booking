@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+/* --- Global Admin Layout Utility System --- */
+.admin-container { padding: 2rem 1.5rem; max-width: 1400px; margin: 0 auto; font-family: system-ui, sans-serif; color: #2d3748; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid #edf2f7; padding-bottom: 1.25rem; }
+.admin-header h1, .admin-header h2 { margin: 0; color: #1a202c; font-size: 1.75rem; font-weight: 700; }
+.admin-header p { margin: 0.25rem 0 0 0; color: #718096; font-size: 0.95rem; }
+
+/* Metrics Panels */
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-metric { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+.metric-icon-box { font-size: 1.75rem; background: #f7fafc; width: 55px; height: 55px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.card-metric h4 { margin: 0 0 0.25rem 0; font-size: 0.85rem; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; }
+.card-metric .metric-val { margin: 0; font-size: 1.5rem; font-weight: 800; color: #1a202c; }
+
+/* Data Tables */
+.table-panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); }
+.table-responsive { width: 100%; overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+.admin-table th { background: #f8fafc; padding: 1rem 1.25rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #4a5568; border-bottom: 2px solid #edf2f7; }
+.admin-table td { padding: 1.25rem; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover { background: #fcfdfe; }
+
+/* Utility Badges & Buttons */
+.badge-ui { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase; display: inline-block; }
+.badge-ok { background: #f0fff4; color: #22543d; }
+.badge-warn { background: #fffaf0; color: #dd6b20; }
+.badge-alert { background: #fff5f5; color: #c53030; }
+
+.btn-admin { padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary-ui { background: #2b6cb0; color: #fff; }
+.btn-primary-ui:hover { background: #2c5282; }
+.btn-secondary-ui { background: #edf2f7; color: #4a5568; }
+.btn-secondary-ui:hover { background: #e2e8f0; }
+
+/* Two-column layout patterns */
+.admin-split-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 1024px) { .admin-split-layout { grid-template-columns: 1.5fr 1fr; } }

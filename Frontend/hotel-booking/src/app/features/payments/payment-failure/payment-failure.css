@@ -1,0 +1,15 @@
+.feedback-wrapper { padding: 4rem 1rem; display: flex; justify-content: center; align-items: center; font-family: system-ui, sans-serif; }
+.feedback-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3rem 2rem; max-width: 520px; width: 100%; text-align: center; }
+.icon-indicator { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: 700; }
+.failure .icon-indicator { background: #fff5f5; color: #e53e3e; border: 2px solid #fed7d7; }
+.feedback-card h1 { font-size: 1.75rem; color: #1a202c; margin: 0 0 0.5rem 0; }
+.summary-text { color: #4a5568; font-size: 0.95rem; margin: 0 0 2rem 0; line-height: 1.5; }
+.error-diagnostic-box { background: #2d3748; color: #fff; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; text-align: center; }
+.diagnostic-title { margin: 0 0 0.25rem 0; font-size: 0.75rem; color: #a0aec0; text-transform: uppercase; font-weight: 700; }
+.diagnostic-code { font-family: monospace; font-size: 0.95rem; color: #feb2b2; font-weight: 700; }
+.mitigation-text { font-size: 0.85rem; color: #718096; line-height: 1.6; margin: 0 0 2.5rem 0; }
+.action-buttons { display: flex; flex-direction: column; gap: 0.75rem; }
+@media(min-width: 480px) { .action-buttons { flex-direction: row; justify-content: center; } }
+.btn { padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer; text-decoration: none; text-align: center; }
+.btn-danger { background: #e53e3e; color: white; border: none; }
+.btn-outline { background: transparent; border: 1px solid #cbd5e0; color: #4a5568; }

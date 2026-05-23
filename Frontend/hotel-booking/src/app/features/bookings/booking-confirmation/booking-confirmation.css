@@ -1,0 +1,14 @@
+.success-screen-wrapper { padding: 4rem 1rem; display: flex; justify-content: center; align-items: center; font-family: system-ui, sans-serif; }
+.success-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3rem 2rem; max-width: 550px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.02); }
+.success-icon-ring { font-size: 2.5rem; width: 70px; height: 70px; background: #f0fff4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; border: 2px solid #c6f6d5; }
+.success-card h1 { font-size: 2rem; color: #1a202c; margin: 0 0 0.5rem 0; }
+.tagline { color: #4a5568; font-size: 1.05rem; line-height: 1.5; margin: 0 0 2rem 0; }
+.badge-display-box { background: #f7fafc; border: 1px dashed #cbd5e0; padding: 1rem; border-radius: 8px; max-width: 280px; margin: 0 auto 2rem auto; }
+.badge-display-box .label { display: block; font-size: 0.75rem; color: #718096; text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem; }
+.badge-display-box .code { font-size: 1.4rem; color: #22543d; font-family: monospace; letter-spacing: 0.5px; }
+.guidance-text { font-size: 0.9rem; color: #718096; line-height: 1.6; margin: 0 0 2.5rem 0; }
+.action-cluster { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.btn-primary { background: #3182ce; color: #fff; border: none; width: 100%; max-width: 280px; padding: 0.85rem; font-size: 1rem; font-weight: 700; border-radius: 6px; cursor: pointer; }
+.btn-text-only { background: transparent; border: none; color: #4a5568; font-weight: 600; font-size: 0.9rem; cursor: pointer; }
+.support-footer { border-top: 1px solid #edf2f7; margin-top: 3rem; padding-top: 1.25rem; font-size: 0.8rem; color: #a0aec0; }
+.support-footer a { color: #3182ce; text-decoration: none; }

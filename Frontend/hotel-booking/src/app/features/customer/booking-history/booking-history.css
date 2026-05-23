@@ -1,0 +1,15 @@
+.history-page-wrapper { padding: 2rem 1rem; max-width: 950px; margin: 0 auto; font-family: system-ui, sans-serif; color: #2d3748; }
+.header-action-zone { margin-bottom: 2rem; }
+.header-action-zone h2 { margin: 0; color: #1a202c; font-size: 1.6rem; }
+.header-action-zone p { margin: 0.25rem 0 0 0; color: #718096; font-size: 0.95rem; }
+.table-scroll-container { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow-x: auto; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); }
+.history-data-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; min-width: 650px; }
+.history-data-table th { background: #f7fafc; padding: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; border-bottom: 2px solid #edf2f7; }
+.history-data-table td { padding: 1.25rem 1rem; border-bottom: 1px solid #edf2f7; color: #4a5568; }
+.history-data-table tr:last-child td { border-bottom: none; }
+.id-cell { font-family: monospace; font-size: 0.9rem; color: #718096; }
+.bold-cell { font-weight: 600; color: #1a202c; }
+.price-cell { font-weight: 700; color: #2d3748; }
+.state-pill { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
+.state-settled { background: #f0fff4; color: #22543d; }
+.state-refunded { background: #ebf8ff; color: #2b6cb0; }

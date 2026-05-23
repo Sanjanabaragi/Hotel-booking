@@ -1,0 +1,29 @@
+.details-container { padding: 2rem 1rem; max-width: 1100px; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif; color: #2d3748; }
+.gallery-section { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.main-hero-view { height: 420px; border-radius: 12px; overflow: hidden; background: #edf2f7; }
+.main-hero-view img { width: 100%; height: 100%; object-fit: cover; }
+.thumbnails-track { display: flex; gap: 0.75rem; overflow-x: auto; }
+.thumbnails-track img { width: 100px; height: 65px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: 0.6; border: 2px solid transparent; }
+.thumbnails-track img.active-thumb { opacity: 1; border-color: #3182ce; }
+
+.content-split-layout { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 768px) { .content-split-layout { grid-template-columns: 2fr 1fr; } }
+
+.headline-block { border-bottom: 1px solid #e2e8f0; padding-bottom: 1.25rem; margin-bottom: 1.75rem; }
+.headline-block h1 { margin: 0 0 0.5rem 0; font-size: 2.25rem; color: #1a202c; }
+.sub-loc { margin: 0; font-size: 1rem; color: #4a5568; display: flex; gap: 1rem; align-items: center; }
+.stars { color: #dd6b20; font-weight: 700; background: #feebc8; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.85rem; }
+
+.desc-card, .specs-card { background: #fff; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; }
+.desc-card h3, .specs-card h3 { margin-top: 0; margin-bottom: 0.75rem; font-size: 1.15rem; color: #1a202c; }
+.desc-card p { line-height: 1.6; color: #4a5568; margin: 0; font-size: 1rem; }
+.specs-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.65rem; }
+.specs-card li { font-size: 0.95rem; color: #4a5568; }
+
+.cta-sidebar .sticky-pricing-box { background: #f7fafc; border: 1px solid #e2e8f0; padding: 1.75rem; border-radius: 12px; position: sticky; top: 2rem; }
+.pricing-headline { margin: 0 0 0.5rem 0; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; }
+.big-price { font-size: 2.25rem; font-weight: 800; color: #1a202c; }
+.time-unit { font-size: 1rem; color: #718096; }
+.tax-info { font-size: 0.75rem; color: #a0aec0; margin: 0.5rem 0 1.75rem 0; }
+.reserve-btn { background: #3182ce; color: white; border: none; width: 100%; padding: 1rem; border-radius: 8px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+.reserve-btn:hover { background: #2b6cb0; }

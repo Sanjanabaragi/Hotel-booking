@@ -1,0 +1,37 @@
+<p>manage-room-types works!</p>
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>Blueprint Classification Pricing Matrix</h2>
+      <p>Configure structural room styles, targeted default daily cash values, and asset locks.</p>
+    </div>
+    <button class="btn-admin btn-primary-ui">+ Authorize New Class Profile</button>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Class Code</th>
+            <th>Marketing Description Label</th>
+            <th>Base Retail Price Floor</th>
+            <th>Global System Allocation</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of roomTypes">
+            <td style="font-family: monospace; font-weight: 700; color:#2c5282;">{{ t.key }}</td>
+            <td style="font-weight: 600;">{{ t.name }}</td>
+            <td style="font-weight: 700; color: #2d3748;">${{ t.baseRate }}/night</td>
+            <td>{{ t.allocation }} Units Catalogued</td>
+            <td>
+              <button class="btn-admin btn-secondary-ui" style="padding: 0.35rem 0.75rem; font-size:0.8rem;">Alter Price</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

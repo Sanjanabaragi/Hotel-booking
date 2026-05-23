@@ -1,0 +1,37 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>Master Guest Reservation Ledger</h2>
+      <p>Global administrative authority interface to force room reassignments or alter lease timelines.</p>
+    </div>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Invoice Code</th>
+            <th>Primary Guest Holder</th>
+            <th>Assigned Bay</th>
+            <th>Stay Window Timeline</th>
+            <th>Verification State</th>
+            <th>Operational Controls</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of bookingsMaster">
+            <td style="font-family: monospace; font-weight: 700;">{{ b.invoiceCode }}</td>
+            <td style="font-weight: 600;">{{ b.client }}</td>
+            <td>{{ b.space }}</td>
+            <td>{{ b.stay }}</td>
+            <td><span class="badge-ui badge-ok">{{ b.status }}</span></td>
+            <td>
+              <button class="btn-admin btn-secondary-ui" style="padding: 0.35rem 0.75rem; font-size:0.8rem;">Force Modify</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

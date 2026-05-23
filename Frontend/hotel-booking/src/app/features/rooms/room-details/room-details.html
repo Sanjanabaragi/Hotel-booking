@@ -1,0 +1,37 @@
+<div class="room-details-container" *ngIf="roomData">
+  <div class="back-nav-bar">
+    <a class="back-link" routerLink="/room-list">← Back to All Rooms</a>
+  </div>
+
+  <div class="details-split">
+    <!-- Showcase Slider Mock Layout -->
+    <div class="images-panel">
+      <img [src]="roomData.images[0]" class="main-room-view" alt="Room View Main" />
+      <div class="preview-strip">
+        <img *ngFor="let img of roomData.images" [src]="img" alt="Subview" />
+      </div>
+    </div>
+
+    <!-- Fact Sheet Elements -->
+    <div class="content-panel">
+      <h1>{{ roomData.type }}</h1>
+      <p class="pricing-metric"><strong>${{ roomData.pricePerNight }}</strong> <span class="subtext">/ night</span></p>
+      
+      <div class="section-divider"></div>
+      
+      <h3>Description</h3>
+      <p class="long-desc">{{ roomData.description }}</p>
+
+      <h3>What is Included in Your Stay</h3>
+      <ul class="inclusions-list">
+        <li *ngFor="let item of roomData.inclusions">✦ {{ item }}</li>
+      </ul>
+
+      <div class="cta-block">
+        <button class="btn-book-now" [routerLink]="['/room-booking', roomData.id]">
+          Proceed with Selection
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

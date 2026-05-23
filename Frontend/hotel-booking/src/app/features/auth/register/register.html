@@ -1,0 +1,54 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Create an Account</h2>
+    <p class="subtitle">Join us to discover and book premium stays</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="alert success">{{ successMessage }}</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text" formControlName="firstName" placeholder="John" />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" type="text" formControlName="lastName" placeholder="Doe" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" type="email" formControlName="email" placeholder="john.doe@example.com" />
+        <span class="error-text" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+          Please enter a valid email address.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="••••••••" />
+        <span class="error-text" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+          Password must be at least 6 characters.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="••••••••" />
+        <span class="error-text" *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.hasError('mismatch')">
+          Passwords do not match.
+        </span>
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid || loading" class="btn-primary">
+        {{ loading ? 'Creating Account...' : 'Register' }}
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Already have an account? <a routerLink="/auth/login">Log in</a></p>
+    </div>
+  </div>
+</div>
