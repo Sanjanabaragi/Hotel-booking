@@ -1,24 +1,15 @@
-<<<<<<< Updated upstream
 using HotelBooking.Data;
-using Microsoft.EntityFrameworkCore;
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-=======
 using HotelBooking.Extensions;
 using HotelBooking.Middleware;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container using extension methods
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
->>>>>>> Stashed changes
 
-builder.Services.AddDbContext<HotelBooking.Data.HotelBookingContext>(options =>
+builder.Services.AddDbContext<HotelBookingContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
