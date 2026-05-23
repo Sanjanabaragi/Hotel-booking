@@ -2,6 +2,7 @@ using AutoMapper;
 using HotelBooking.Data;
 using HotelBooking.Interfaces;
 using HotelBooking.Mappings;
+using HotelBooking.Repositories;
 using HotelBooking.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,7 @@ public static class ApplicationServiceExtensions
     {
         services.AddAutoMapper(typeof(AutoMapperProfile));
 
+        // Services
         services.AddScoped<IHotelService, HotelService>();
         services.AddScoped<IRoomService, RoomService>();
         services.AddScoped<IAuthService, AuthService>();
@@ -21,6 +23,19 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IReportService, ReportService>();
         services.AddScoped<ICancellationService, CancellationService>();
+
+        // Generic repository
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+        // Specific repositories
+        services.AddScoped<IHotelRepository, HotelRepository>();
+        services.AddScoped<IRoomRepository, RoomRepository>();
+        services.AddScoped<IBookingRepository, BookingRepository>();
+        services.AddScoped<IPaymentRepository, PaymentRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoomTypeRepository, RoomTypeRepository>();
+        services.AddScoped<IAmenityRepository, AmenityRepository>();
+        services.AddScoped<ICancellationRepository, CancellationRepository>();
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();
