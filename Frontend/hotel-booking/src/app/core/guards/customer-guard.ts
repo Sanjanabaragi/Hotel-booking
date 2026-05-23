@@ -1,11 +1,10 @@
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { Router } from 'express';
 
 export const customerGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
-  const role = localStorage.getItem('role');
+  const role = typeof localStorage === 'undefined' ? null : localStorage.getItem('role');
 
   if (role === 'Customer') {
     return true;

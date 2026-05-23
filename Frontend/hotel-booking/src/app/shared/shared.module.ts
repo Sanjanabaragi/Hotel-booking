@@ -57,8 +57,9 @@ from './pipes/price-format-pipe';
 
 @NgModule({
 
-  declarations: [
-
+  imports: [
+    CommonModule,
+    RouterModule,
     // Components
     NavbarComponent,
     FooterComponent,
@@ -78,12 +79,6 @@ from './pipes/price-format-pipe';
     BookingStatusPipe,
     GuestCountPipe,
     PriceFormatPipe
-
-  ],
-
-  imports: [
-    CommonModule,
-    RouterModule
   ],
 
   exports: [

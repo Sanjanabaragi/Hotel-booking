@@ -9,16 +9,14 @@ import { RegisterComponent } from './register/register';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent,
-    ForgotPasswordComponent
-  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent
   ]
 })
 export class AuthModule { }

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageRoomTypes } from './manage-room-types';
+import { ManageRoomTypesComponent } from './manage-room-types';
 
-describe('ManageRoomTypes', () => {
-  let component: ManageRoomTypes;
-  let fixture: ComponentFixture<ManageRoomTypes>;
+describe('ManageRoomTypesComponent', () => {
+  let component: ManageRoomTypesComponent;
+  let fixture: ComponentFixture<ManageRoomTypesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ManageRoomTypes],
+      imports: [ManageRoomTypesComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ManageRoomTypes);
+    fixture = TestBed.createComponent(ManageRoomTypesComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

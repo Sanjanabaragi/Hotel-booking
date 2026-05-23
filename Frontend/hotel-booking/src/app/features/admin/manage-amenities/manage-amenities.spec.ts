@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageAmenities } from './manage-amenities';
+import { ManageAmenitiesComponent } from './manage-amenities';
 
-describe('ManageAmenities', () => {
-  let component: ManageAmenities;
-  let fixture: ComponentFixture<ManageAmenities>;
+describe('ManageAmenitiesComponent', () => {
+  let component: ManageAmenitiesComponent;
+  let fixture: ComponentFixture<ManageAmenitiesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ManageAmenities],
+      imports: [ManageAmenitiesComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ManageAmenities);
+    fixture = TestBed.createComponent(ManageAmenitiesComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
