@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common'; // <-- For *ngIf
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-login', // (or your specific component selector)
+  standalone: true,      // (Ensure this is true if using standalone)
   templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  styleUrls: ['./login.css'],
+  imports: [CommonModule, ReactiveFormsModule] // <-- Add both here
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
