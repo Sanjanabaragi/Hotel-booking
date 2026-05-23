@@ -1,0 +1,37 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>Contract Terminations &amp; Refund Processing Board</h2>
+      <p>Authorize clawback percentages, clear room holdings, and resolve penalty tier disputes.</p>
+    </div>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Dropped Target ID</th>
+            <th>Primary Profile Identity</th>
+            <th>Contract Break Penalty Fee</th>
+            <th>Remittance Back-Pay Balance</th>
+            <th>Escrow Resolution Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of refundQueue">
+            <td style="font-family: monospace; font-weight: 700;">{{ c.reference }}</td>
+            <td>{{ c.client }}</td>
+            <td style="color:#c53030; font-weight: 600;">${{ c.penalty | number:'1.2-2' }}</td>
+            <td style="color:#2f855a; font-weight: 700;">${{ c.refundIssued | number:'1.2-2' }}</td>
+            <td><span class="badge-ui badge-warn">{{ c.approvalState }}</span></td>
+            <td>
+              <button class="btn-admin btn-primary-ui" style="padding: 0.35rem 0.75rem; font-size:0.8rem; background:#2f855a;">Approve Release</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

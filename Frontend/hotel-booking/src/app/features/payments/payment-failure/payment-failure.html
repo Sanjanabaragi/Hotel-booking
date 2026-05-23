@@ -1,0 +1,21 @@
+<div class="feedback-wrapper">
+  <div class="feedback-card failure">
+    <div class="icon-indicator">✕</div>
+    <h1>Transaction Declined</h1>
+    <p class="summary-text">The clearing house refused the transaction verification check.</p>
+
+    <div class="error-diagnostic-box">
+      <p class="diagnostic-title">Gateway Diagnostic Reason Code</p>
+      <code class="diagnostic-code">{{ failureReason }}</code>
+    </div>
+
+    <p class="mitigation-text">
+      Please contact your bank to clear international travel holds, or re-route the checkout balance to an alternative payment card.
+    </p>
+
+    <div class="action-buttons">
+      <button class="btn btn-danger" routerLink="/payments/payment-page">Try Another Card</button>
+      <button class="btn btn-outline" routerLink="/bookings/booking-list">Return to Booking Summary</button>
+    </div>
+  </div>
+</div>

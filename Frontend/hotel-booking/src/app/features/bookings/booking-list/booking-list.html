@@ -1,0 +1,38 @@
+<div class="booking-list-wrapper">
+  <div class="list-title-block">
+    <h2>Your Travel Itineraries</h2>
+    <p>Track, modify, or print your hotel reservations details.</p>
+  </div>
+
+  <div class="list-stack">
+    <div class="booking-row" *ngFor="let item of bookings">
+      <img [src]="item.imageUrl" [alt]="item.hotelName" class="row-thumbnail" />
+      
+      <div class="row-main-info">
+        <div class="row-header">
+          <h3>{{ item.hotelName }}</h3>
+          <span class="status-badge" [ngClass]="{
+            'status-upcoming': item.status === 'Upcoming',
+            'status-completed': item.status === 'Completed',
+            'status-cancelled': item.status === 'Cancelled'
+          }">{{ item.status }}</span>
+        </div>
+        
+        <p class="room-desc">🛏️ {{ item.roomType }} (ID: {{ item.id }})</p>
+        <p class="stay-dates">📅 <strong>{{ item.checkIn }}</strong> to <strong>{{ item.checkOut }}</strong></p>
+      </div>
+
+      <div class="row-pricing-actions">
+        <div class="price-box">
+          <p class="price-label">Paid Invoice</p>
+          <p class="price-value">${{ item.totalCost | number:'1.2-2' }}</p>
+        </div>
+        <div class="action-box">
+          <button class="btn-manage" [routerLink]="['/bookings/booking-details', item.id]">
+            Manage Booking
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

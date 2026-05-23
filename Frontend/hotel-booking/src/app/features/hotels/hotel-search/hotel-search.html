@@ -1,0 +1,79 @@
+<div class="search-container">
+  <div class="search-hero">
+    <h1>Find Best Hotels for Your Stay</h1>
+    <p>Compare prices, ratings, and locations across premier properties.</p>
+  </div>
+
+  <div class="search-card">
+    <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+      <div class="search-grid">
+        
+        <!-- Destination input -->
+        <div class="input-block">
+          <label for="destination">Where are you going?</label>
+          <input 
+            id="destination" 
+            type="text" 
+            name="destination"
+            [(ngModel)]="searchQuery.destination" 
+            placeholder="City, region, or specific hotel name"
+            required />
+        </div>
+
+        <!-- Check-in input -->
+        <div class="input-block">
+          <label for="checkIn">Check-in Date</label>
+          <input 
+            id="checkIn" 
+            type="date" 
+            name="checkIn"
+            [(ngModel)]="searchQuery.checkIn" 
+            required />
+        </div>
+
+        <!-- Check-out input -->
+        <div class="input-block">
+          <label for="checkOut">Check-out Date</label>
+          <input 
+            id="checkOut" 
+            type="date" 
+            name="checkOut"
+            [(ngModel)]="searchQuery.checkOut" 
+            required />
+        </div>
+
+        <!-- Guests input -->
+        <div class="input-block">
+          <label for="guests">Guests</label>
+          <input 
+            id="guests" 
+            type="number" 
+            name="guests"
+            min="1" 
+            max="10"
+            [(ngModel)]="searchQuery.guests" 
+            required />
+        </div>
+
+      </div>
+
+      <button type="submit" [disabled]="!searchForm.valid" class="search-btn">
+        Search Accommodations
+      </button>
+    </form>
+  </div>
+
+  <!-- Quick Filter Tags -->
+  <div class="quick-locations">
+    <h3>Popular Destinations:</h3>
+    <div class="tag-cloud">
+      <button 
+        type="button" 
+        class="location-tag" 
+        *ngFor="let loc of popularLocations" 
+        (click)="selectLocation(loc)">
+        {{ loc }}
+      </button>
+    </div>
+  </div>
+</div>

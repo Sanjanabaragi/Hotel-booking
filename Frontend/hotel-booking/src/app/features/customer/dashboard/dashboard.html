@@ -1,0 +1,54 @@
+<div class="dashboard-grid-container">
+  <!-- Welcome Banner Jumbotron -->
+  <header class="dash-welcome-hero">
+    <div class="hero-left">
+      <h1>Welcome back, {{ userSession.firstName }}!</h1>
+      <p>Manage your account settings, loyalty balances, and room alerts here.</p>
+    </div>
+    <div class="tier-pill">
+      <span class="star-icon">⭐</span> {{ userSession.loyaltyTier }} Member
+    </div>
+  </header>
+
+  <!-- Metrics Row -->
+  <section class="metrics-strip">
+    <div class="metric-card">
+      <span class="m-icon">💎</span>
+      <div>
+        <h4>Loyalty Point Bank</h4>
+        <p class="m-value">{{ userSession.pointsBalance | number }} pts</p>
+      </div>
+    </div>
+    <div class="metric-card">
+      <span class="m-icon">🧳</span>
+      <div>
+        <h4>Active Safe Leases</h4>
+        <p class="m-value">{{ userSession.activeStaysCount }} Scheduled</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Body Content Layout Split -->
+  <div class="dash-body-split">
+    <main class="pane-primary">
+      <h3>Immediate Itinerary Action Item</h3>
+      <div class="itinerary-preview-box" *ngIf="userSession.activeStaysCount > 0">
+        <div class="preview-details">
+          <strong>{{ upcomingStay.hotelName }}</strong>
+          <p>{{ upcomingStay.room }}</p>
+          <small>Checking in: {{ upcomingStay.checkIn }}</small>
+        </div>
+        <button class="btn-dash-action" routerLink="/bookings/booking-list">Open Keys</button>
+      </div>
+    </main>
+
+    <aside class="pane-navigation">
+      <h3>Account Hub Links</h3>
+      <nav class="shortcut-list">
+        <a routerLink="/customer/profile" class="nav-item-link">👤 Modify Personal Profile</a>
+        <a routerLink="/customer/booking-history" class="nav-item-link">📜 Archived Stay Ledgers</a>
+        <a routerLink="/customer/notifications" class="nav-item-link">🔔 Alert Stream Rules</a>
+      </nav>
+    </aside>
+  </div>
+</div>

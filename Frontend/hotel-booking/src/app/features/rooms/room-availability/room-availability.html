@@ -1,0 +1,38 @@
+<div class="availability-card-container">
+  <h3>Real-Time Live Room Lookup</h3>
+  <p class="subtitle">Select your entry date targets below to parse structural floor space charts.</p>
+
+  <form (ngSubmit)="onCheckAvailability()" class="availability-form">
+    <div class="form-row">
+      <div class="element">
+        <label for="checkInDate">Target Date</label>
+        <input type="date" id="checkInDate" name="checkInDate" [(ngModel)]="filterCriteria.checkInDate" required />
+      </div>
+
+      <div class="element">
+        <label for="roomClass">Tier Tier Class</label>
+        <select id="roomClass" name="roomClass" [(ngModel)]="filterCriteria.roomClass">
+          <option value="all">All Tiers Mixed</option>
+          <option value="deluxe">Deluxe Suites Only</option>
+          <option value="executive">Executive Twin Configurations</option>
+          <option value="penthouse">Presidential Penthouses</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-lookup" [disabled]="isCheckingStatus || !filterCriteria.checkInDate">
+      {{ isCheckingStatus ? 'Parsing Database Blocks...' : 'Query Room Availability' }}
+    </button>
+  </form>
+
+  <!-- Interactive State Notification Banners -->
+  <div class="outcome-box" *ngIf="hasChecked">
+    <div *ngIf="availabilityOutcome === 'available'" class="alert alert-success">
+      🟢 <strong>High Clean Volume:</strong> Multiple structural layouts matching your criteria are open for reservations.
+    </div>
+    
+    <div *ngIf="availabilityOutcome === 'limited'" class="alert alert-warning">
+      🟡 <strong>Scarcity Alert:</strong> Only 1 room layout configuration remains open for this tier class. Book immediately.
+    </div>
+  </div>
+</div>

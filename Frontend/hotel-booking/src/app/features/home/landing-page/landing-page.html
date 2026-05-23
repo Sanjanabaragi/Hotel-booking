@@ -1,0 +1,29 @@
+<div class="landing-container">
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1>Find Your Next Perfect Stay</h1>
+      <p class="hero-subtitle">Discover boutique hotels, luxury resorts, and cozy spaces around the globe at competitive rates.</p>
+      <div class="cta-buttons">
+        <button class="btn-primary-lg" (click)="navigateToRegister()">Get Started</button>
+        <a routerLink="/auth/login" class="btn-secondary-lg">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Section -->
+  <section class="featured-section">
+    <h2>Trending Destinations</h2>
+    <p class="section-desc">Handpicked escapes tailored for unforgettable travel experiences.</p>
+    
+    <div class="destination-grid">
+      <div class="destination-card" *ngFor="let item of featuredDestinations">
+        <img [src]="item.image" [alt]="item.name" class="card-img" />
+        <div class="card-body">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

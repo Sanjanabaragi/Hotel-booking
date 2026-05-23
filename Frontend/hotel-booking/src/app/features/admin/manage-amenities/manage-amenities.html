@@ -1,0 +1,34 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>Surcharge Services &amp; Amenity Options</h2>
+      <p>Register upsells, facility upgrades, and auxiliary digital products.</p>
+    </div>
+    <button class="btn-admin btn-primary-ui">+ Launch New Amenity Option</button>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>System UID</th>
+            <th>Feature Package Name</th>
+            <th>Standard Billing Valuation Mode</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of amenities">
+            <td style="font-family: monospace;">{{ a.uid }}</td>
+            <td style="font-weight: 600;">{{ a.featureName }}</td>
+            <td><span class="badge-ui badge-ok">{{ a.billingMode }}</span></td>
+            <td>
+              <button class="btn-admin btn-secondary-ui" style="padding: 0.35rem 0.75rem; font-size:0.8rem;">Edit Rules</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

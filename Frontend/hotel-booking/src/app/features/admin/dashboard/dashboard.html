@@ -1,0 +1,42 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h1>Enterprise Management Suite</h1>
+      <p>System metrics status index updates as of 2026.</p>
+    </div>
+  </header>
+
+  <div class="metrics-grid">
+    <div class="card-metric" *ngFor="let m of systemMetrics">
+      <div class="metric-icon-box">{{ m.icon }}</div>
+      <div>
+        <h4>{{ m.label }}</h4>
+        <p class="metric-val">{{ m.value }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-split-layout">
+    <div class="table-panel" style="padding: 1.5rem;">
+      <h3 style="margin-top:0;">Fast-Path Administrative Links</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top:1.5rem;">
+        <button class="btn-admin btn-secondary-ui" routerLink="/admin/manage-hotels">🏢 Manage Hotels</button>
+        <button class="btn-admin btn-secondary-ui" routerLink="/admin/manage-rooms">🛏️ Manage Rooms</button>
+        <button class="btn-admin btn-secondary-ui" routerLink="/admin/manage-bookings">📜 Bookings Ledger</button>
+        <button class="btn-admin btn-secondary-ui" routerLink="/admin/manage-payments">💳 Payments Control</button>
+        <button class="btn-admin btn-secondary-ui" routerLink="/admin/reports">📈 Financial Reports</button>
+        <button class="btn-admin btn-secondary-ui" routerLink="/admin/users">👥 User Directory</button>
+      </div>
+    </div>
+
+    <div class="table-panel" style="padding: 1.5rem;">
+      <h3 style="margin-top:0;">Live Infrastructure Telemetry</h3>
+      <ul style="list-style: none; padding: 0; margin: 1.5rem 0 0 0;">
+        <li *ngFor="let log of recentLogs" style="padding: 0.75rem 0; border-bottom: 1px solid #edf2f7; display: flex; justify-content: space-between; font-size: 0.9rem;">
+          <span style="color: #4a5568;">{{ log.item }}</span>
+          <small style="color: #a0aec0; white-space: nowrap;">{{ log.time }}</small>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

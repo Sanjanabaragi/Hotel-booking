@@ -1,0 +1,30 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>Yield Management &amp; Macro Analytics Reports</h2>
+      <p>Track high-level RevPAR indicators, platform usage telemetry, and financial audit files.</p>
+    </div>
+    <button class="btn-admin btn-secondary-ui">📊 Export ledger CSV sheet</button>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Performance Indicator Target</th>
+            <th>Current Calculated Measure Value</th>
+            <th>Audit Status Evaluation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let k of kpis">
+            <td style="font-weight: 600; color: #2d3748;">{{ k.metric }}</td>
+            <td style="font-size: 1.2rem; font-weight: 800; color: #2b6cb0;">{{ k.measure }}</td>
+            <td><span class="badge-ui badge-ok">{{ k.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

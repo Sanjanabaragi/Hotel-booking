@@ -1,0 +1,23 @@
+<div class="feedback-wrapper">
+  <div class="feedback-card success">
+    <div class="icon-indicator">✓</div>
+    <h1>Payment Captured Successfully</h1>
+    <p class="summary-text">Your credit line has been verified and settled. The reservation is active.</p>
+
+    <div class="receipt-snippet">
+      <div class="snippet-row">
+        <span>Merchant Trace Reference ID</span>
+        <strong class="mono">{{ transactionId }}</strong>
+      </div>
+      <div class="snippet-row">
+        <span>Settled Remittance Amount</span>
+        <strong>${{ amountCleared | number:'1.2-2' }} USD</strong>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-solid" routerLink="/bookings/booking-list">Manage Itineraries</button>
+      <button class="btn btn-outline" routerLink="/home-page">Go to Dashboard</button>
+    </div>
+  </div>
+</div>

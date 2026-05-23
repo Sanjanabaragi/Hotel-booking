@@ -1,0 +1,35 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>Merchant Transaction Clearing Settlement Hub</h2>
+      <p>Audit bank processor callback records, gateway trace hashes, and escrow releases.</p>
+    </div>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Gateway Transaction ID</th>
+            <th>Payer Profile Reference</th>
+            <th>Net Capture Amount</th>
+            <th>Settlement Mechanism</th>
+            <th>Vault Release State</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of paymentsLog">
+            <td style="font-family: monospace; font-weight: 700;">{{ p.gatewayId }}</td>
+            <td>{{ p.customer }}</td>
+            <td style="font-weight: 700; color:#2b6cb0;">${{ p.clearedVal | number:'1.2-2' }}</td>
+            <td>{{ p.mechanism }}</td>
+            <td>
+              <span class="badge-ui" [ngClass]="p.state === 'Settled' ? 'badge-ok' : 'badge-warn'">{{ p.state }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

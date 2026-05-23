@@ -1,0 +1,64 @@
+<div class="details-container" *ngIf="hotelData">
+  
+  <!-- Showcase Gallery -->
+  <section class="gallery-section">
+    <div class="main-hero-view">
+      <img [src]="hotelData.images[selectedImageIndex]" alt="Property Showcase View" />
+    </div>
+    <div class="thumbnails-track">
+      <img 
+        *ngFor="let image of hotelData.images; let i = index" 
+        [src]="image" 
+        alt="Preview Thumbnail" 
+        [class.active-thumb]="i === selectedImageIndex"
+        (click)="setHeroImage(i)" />
+    </div>
+  </section>
+
+  <!-- Detailed Core Metadata grid layout split -->
+  <div class="content-split-layout">
+    
+    <main class="primary-specs">
+      <div class="headline-block">
+        <h1>{{ hotelData.name }}</h1>
+        <p class="sub-loc">📍 {{ hotelData.location }} <span class="stars">★ {{ hotelData.rating }}</span></p>
+      </div>
+
+      <div class="desc-card">
+        <h3>About the Property</h3>
+        <p>{{ hotelData.description }}</p>
+      </div>
+
+      <div class="specs-card">
+        <h3>Premium Amenities Included</h3>
+        <ul>
+          <li *ngFor="let feature of hotelData.features">✓ {{ feature }}</li>
+        </ul>
+      </div>
+
+      <div class="specs-card">
+        <h3>House Policies</h3>
+        <ul>
+          <li *ngFor="let policy of hotelData.policies">ℹ {{ policy }}</li>
+        </ul>
+      </div>
+    </main>
+
+    <!-- Side Booking Call-To-Action Box -->
+    <aside class="cta-sidebar">
+      <div class="sticky-pricing-box">
+        <p class="pricing-headline">Pricing Summary</p>
+        <div class="cost-row">
+          <span class="big-price">${{ hotelData.basePrice }}</span>
+          <span class="time-unit">/ night</span>
+        </div>
+        <p class="tax-info">Excludes local hospitality taxes & room service add-ons</p>
+        
+        <button class="reserve-btn" (click)="onInitiateBooking()">
+          Proceed to Room Selection
+        </button>
+      </div>
+    </aside>
+
+  </div>
+</div>

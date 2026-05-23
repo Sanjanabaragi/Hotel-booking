@@ -1,0 +1,36 @@
+<div class="history-page-wrapper">
+  <div class="header-action-zone">
+    <div>
+      <h2>Archived Booking Logs</h2>
+      <p>Review closed historical hotel space contracts and down-line fiscal balances.</p>
+    </div>
+  </div>
+
+  <div class="table-scroll-container">
+    <table class="history-data-table">
+      <thead>
+        <tr>
+          <th>Reference ID</th>
+          <th>Resort Location</th>
+          <th>Stay Duration Timeline</th>
+          <th>Total Charged</th>
+          <th>Settlement Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of historyRecords">
+          <td class="id-cell">{{ item.pastId }}</td>
+          <td class="bold-cell">{{ item.destinationName }}</td>
+          <td>{{ item.stayDates }}</td>
+          <td class="price-cell">${{ item.totalCost | number:'1.2-2' }}</td>
+          <td>
+            <span class="state-pill" [ngClass]="{
+              'state-settled': item.invoiceState === 'Settled',
+              'state-refunded': item.invoiceState === 'Refunded'
+            }">{{ item.invoiceState }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

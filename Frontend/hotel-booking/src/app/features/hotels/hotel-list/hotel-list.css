@@ -1,0 +1,20 @@
+.list-wrapper { padding: 2rem 1rem; max-width: 1140px; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif; }
+.list-header { margin-bottom: 2rem; border-bottom: 1px solid #edf2f7; padding-bottom: 1rem; }
+.list-header h2 { margin: 0 0 0.25rem 0; font-size: 1.75rem; color: #1a202c; }
+.results-count { margin: 0; color: #718096; font-size: 0.95rem; }
+.hotel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+.hotel-card { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+.image-wrapper { position: relative; height: 210px; background: #e2e8f0; }
+.image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.rating-badge { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.75); color: #fff; padding: 0.35rem 0.65rem; border-radius: 6px; font-size: 0.85rem; font-weight: 700; backdrop-filter: blur(4px); }
+.card-details { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.title-row h3 { margin: 0 0 0.35rem 0; font-size: 1.25rem; color: #1a202c; font-weight: 700; }
+.location-text { margin: 0 0 1rem 0; font-size: 0.9rem; color: #4a5568; }
+.amenity-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+.chip { background: #edf2f7; color: #4a5568; font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 4px; font-weight: 500; }
+.footer-row { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid #f7fafc; padding-top: 1rem; }
+.price { font-size: 1.4rem; font-weight: 800; color: #1a202c; }
+.unit { font-size: 0.85rem; color: #718096; }
+.review-sub { margin: 0.15rem 0 0 0; font-size: 0.75rem; color: #a0aec0; }
+.view-btn { background: #1a202c; color: #fff; border: none; padding: 0.6rem 1.2rem; font-size: 0.9rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: opacity 0.2s; }
+.view-btn:hover { opacity: 0.9; }

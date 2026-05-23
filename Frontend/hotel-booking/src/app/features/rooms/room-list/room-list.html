@@ -1,0 +1,39 @@
+<div class="rooms-list-container">
+  <div class="rooms-header">
+    <h2>Available Rooms & Suites</h2>
+    <p>Select your preferred configuration below to continue booking.</p>
+  </div>
+
+  <div class="rooms-grid">
+    <div class="room-card" *ngFor="let room of rooms" [class.sold-out]="!room.isAvailable">
+      <div class="room-img-box">
+        <img [src]="room.imageUrl" [alt]="room.type" />
+        <span class="status-tag" [class.tag-danger]="!room.isAvailable">
+          {{ room.isAvailable ? 'Available Now' : 'Sold Out' }}
+        </span>
+      </div>
+
+      <div class="room-details-box">
+        <div class="room-meta">
+          <h3>{{ room.type }}</h3>
+          <p class="specs">📐 {{ room.sizeSqFt }} sq ft | 🛏️ {{ room.bedType }}</p>
+          <p class="capacity">👥 Max Capacity: {{ room.capacity }}</p>
+        </div>
+
+        <div class="room-footer">
+          <div class="pricing-panel">
+            <span class="rate">${{ room.pricePerNight }}</span>
+            <span class="per-night">/ night</span>
+          </div>
+          
+          <div class="action-panel">
+            <a class="btn-info-sm" [routerLink]="['/room-details', room.id]">Details</a>
+            <button class="btn-primary-sm" [disabled]="!room.isAvailable" [routerLink]="['/room-booking', room.id]">
+              Book Room
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-loader',
+  templateUrl: './loader.html'
+})
+export class LoaderComponent {
+
+  @Input() loading = false;
+
+}

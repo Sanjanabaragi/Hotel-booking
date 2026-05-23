@@ -1,0 +1,68 @@
+<div class="details-view-container" *ngIf="bookingData">
+  <div class="top-nav">
+    <a routerLink="/bookings/booking-list" class="btn-back">← Back to Itineraries</a>
+  </div>
+
+  <div class="details-grid">
+    <!-- Primary Summary Info Sheet -->
+    <main class="info-sheet">
+      <div class="sheet-header">
+        <div>
+          <h1>Reservation {{ bookingData.id }}</h1>
+          <p class="hotel-loc">🏢 {{ bookingData.hotelName }} — {{ bookingData.location }}</p>
+        </div>
+        <span class="badge badge-active">{{ bookingData.status }}</span>
+      </div>
+
+      <div class="grid-dates-split">
+        <div class="date-block">
+          <p class="label">Check-In Date</p>
+          <p class="main-date">{{ bookingData.checkIn }}</p>
+          <p class="sub-time">After {{ bookingData.checkInTime }}</p>
+        </div>
+        <div class="date-block">
+          <p class="label">Check-Out Date</p>
+          <p class="main-date">{{ bookingData.checkOut }}</p>
+          <p class="sub-time">Before {{ bookingData.checkOutTime }}</p>
+        </div>
+      </div>
+
+      <div class="data-group">
+        <h3>Room Configuration Details</h3>
+        <p><strong>Selected Option:</strong> {{ bookingData.roomType }}</p>
+        <p><strong>Registered Capacity:</strong> {{ bookingData.guests }}</p>
+      </div>
+
+      <div class="data-group">
+        <h3>Important Check-In Instructions</h3>
+        <p>A government-issued photo ID and matching credit card are required at the front desk upon arrival for incidental deposits.</p>
+      </div>
+    </main>
+
+    <!-- Side Billing Ledger Sheet -->
+    <aside class="billing-sheet">
+      <h3>Financial Breakdown</h3>
+      <div class="bill-row">
+        <span>Room Subtotal</span>
+        <strong>${{ bookingData.basePrice | number:'1.2-2' }}</strong>
+      </div>
+      <div class="bill-row">
+        <span>Hospitality Surcharge (12%)</span>
+        <strong>${{ bookingData.taxes | number:'1.2-2' }}</strong>
+      </div>
+      <div class="divider"></div>
+      <div class="bill-row total-row">
+        <span>Total Captured</span>
+        <span class="total-value">${{ bookingData.grandTotal | number:'1.2-2' }}</span>
+      </div>
+      <p class="payment-source">Charged via {{ bookingData.paymentMethod }}</p>
+
+      <div class="sheet-actions">
+        <button class="btn-secondary" (click)="onPrintReceipt()">🖨️ Print Receipt</button>
+        <button class="btn-danger-outline" [routerLink]="['/bookings/cancel-booking', bookingData.id]">
+          🚫 Cancel Reservation
+        </button>
+      </div>
+    </aside>
+  </div>
+</div>

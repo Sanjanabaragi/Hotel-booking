@@ -1,0 +1,35 @@
+<div class="notifications-panel">
+  <div class="panel-header-action">
+    <div>
+      <h2>Live Security &amp; Activity Stream</h2>
+      <p>Real-time notifications regarding room accessibility and accounting state tracking.</p>
+    </div>
+    <button class="btn-clear-stream" (click)="onClearAllAlerts()" *ngIf="alerts.length > 0">
+      Wipe Feed Clear
+    </button>
+  </div>
+
+  <div class="empty-feed-card" *ngIf="alerts.length === 0">
+    <span class="empty-icon">📭</span>
+    <h3>Feed Cleared Out</h3>
+    <p>No new system telemetry reports or logistical flags outstanding.</p>
+  </div>
+
+  <div class="alert-feed-stack" *ngIf="alerts.length > 0">
+    <div class="alert-item" *ngFor="let item of alerts" [class.unread-item]="!item.isRead">
+      <div class="alert-indicator-dot" [ngClass]="item.type"></div>
+      
+      <div class="alert-body-content">
+        <div class="alert-meta-top">
+          <h4>{{ item.title }}</h4>
+          <span class="time-label">{{ item.timestamp }}</span>
+        </div>
+        <p class="alert-message">{{ item.message }}</p>
+      </div>
+
+      <div class="alert-action-wing" *ngIf="!item.isRead">
+        <button class="btn-mark-done" (click)="onMarkAsRead(item.id)">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>

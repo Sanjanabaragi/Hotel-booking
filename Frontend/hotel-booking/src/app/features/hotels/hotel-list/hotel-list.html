@@ -1,0 +1,38 @@
+<div class="list-wrapper">
+  <div class="list-header">
+    <h2>Available Accommodations</h2>
+    <p class="results-count">Showing {{ hotels.length }} luxury properties matched</p>
+  </div>
+
+  <div class="hotel-grid">
+    <div class="hotel-card" *ngFor="let hotel of hotels">
+      <div class="image-wrapper">
+        <img [src]="hotel.imageUrl" [alt]="hotel.name" />
+        <span class="rating-badge">★ {{ hotel.rating }}</span>
+      </div>
+
+      <div class="card-details">
+        <div class="title-row">
+          <h3>{{ hotel.name }}</h3>
+          <p class="location-text">📍 {{ hotel.location }}</p>
+        </div>
+
+        <div class="amenity-chips">
+          <span class="chip" *ngFor="let amenity of hotel.amenities">{{ amenity }}</span>
+        </div>
+
+        <div class="footer-row">
+          <div class="price-container">
+            <span class="price">${{ hotel.pricePerNight }}</span>
+            <span class="unit"> / night</span>
+            <p class="review-sub">({{ hotel.reviewsCount }} verified reviews)</p>
+          </div>
+          <!-- Passing state parameter to standalone detail layer -->
+          <button class="view-btn" [routerLink]="['/hotel-details', hotel.id]">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>Property Registration Registry</h2>
+      <p>Configure base structural properties, corporate branches, and global physical locations.</p>
+    </div>
+    <button class="btn-admin btn-primary-ui">+ Onboard New Property</button>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Hotel ID</th>
+            <th>Property Name</th>
+            <th>Physical Location</th>
+            <th>Inventoried Bays</th>
+            <th>Operational Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let h of hotels">
+            <td style="font-family: monospace; font-weight:700;">{{ h.id }}</td>
+            <td style="font-weight: 600; color:#1a202c;">{{ h.name }}</td>
+            <td>{{ h.location }}</td>
+            <td>{{ h.totalRooms }} Units</td>
+            <td>
+              <span class="badge-ui" [ngClass]="h.status === 'Active' ? 'badge-ok' : 'badge-warn'">{{ h.status }}</span>
+            </td>
+            <td>
+              <button class="btn-admin btn-secondary-ui" style="padding: 0.35rem 0.75rem; font-size:0.8rem;">Configure</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <div>
+      <h2>System Identity &amp; Access Governance Directory</h2>
+      <p>Modify clearance parameters, audit operations keys, and onboard administrative staff accounts.</p>
+    </div>
+    <button class="btn-admin btn-primary-ui">+ Provision Access Profile</button>
+  </header>
+
+  <div class="table-panel">
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Staff Name Identity</th>
+            <th>Primary Corporate Email</th>
+            <th>Assigned Security Group Role</th>
+            <th>Security Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of userProfiles">
+            <td style="font-weight: 600; color:#1a202c;">{{ u.name }}</td>
+            <td style="font-family: monospace;">{{ u.systemMail }}</td>
+            <td><strong style="color: #4a5568;">{{ u.groupRole }}</strong></td>
+            <td><span class="badge-ui badge-ok">Verified Access Keys</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
