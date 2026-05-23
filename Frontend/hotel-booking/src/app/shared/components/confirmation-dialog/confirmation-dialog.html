@@ -1,0 +1,25 @@
+<div class="card shadow p-4 text-center">
+
+  <h5 class="mb-3">
+    Confirmation
+  </h5>
+
+  <p>
+    {{ message }}
+  </p>
+
+  <div class="d-flex justify-content-center gap-3 mt-3">
+
+    <button class="btn btn-success"
+            (click)="onConfirm()">
+      Yes
+    </button>
+
+    <button class="btn btn-secondary"
+            (click)="onCancel()">
+      No
+    </button>
+
+  </div>
+
+</div>
