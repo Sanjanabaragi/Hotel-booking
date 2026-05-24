@@ -1,39 +1,58 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_CONSTANTS } from '../constants/api.constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
-  private apiUrl = API_CONSTANTS.BASE_URL;
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
-    return this.http.post(
-      this.apiUrl + API_CONSTANTS.AUTH.LOGIN,
+    return this.http.post( 
+       `${this.apiUrl}/auth/login`,
       data
     );
   }
 
   register(data: any): Observable<any> {
     return this.http.post(
-      this.apiUrl + API_CONSTANTS.AUTH.REGISTER,
+       `${this.apiUrl}/auth/register`,
       data
     );
   }
 
   saveToken(token: string): void {
-    localStorage.setItem('token', token);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('token', token);
+    }
   }
 
   getToken(): string | null {
+    if (typeof localStorage === 'undefined') {
+      return null;
+    }
+
     return localStorage.getItem('token');
   }
 
+  getCurrentUser(): { fullName: string } | null {
+    if (typeof localStorage === 'undefined') {
+      return null;
+    }
+
+    const userData = localStorage.getItem('user');
+    return userData ? JSON.parse(userData) : null;
+  }
+
   isLoggedIn(): boolean {
+    if (typeof localStorage === 'undefined') {
+      return false;
+    }
+
     return !!localStorage.getItem('token');
   }
 
@@ -44,6 +63,8 @@ export class Auth {
   }
 
   logout(): void {
-    localStorage.clear();
+    if (typeof localStorage !== 'undefined') {
+      localStorage.clear();
+    }
   }
 }

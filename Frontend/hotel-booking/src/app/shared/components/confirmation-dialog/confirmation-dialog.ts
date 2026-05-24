@@ -2,9 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-confirmation-dialog',
-  imports: [],
   templateUrl: './confirmation-dialog.html',
-  styleUrl: './confirmation-dialog.css',
+  styleUrls: ['./confirmation-dialog.css'],
 })
 export class ConfirmationDialogComponent {
   @Input() message = 'Are you sure?';

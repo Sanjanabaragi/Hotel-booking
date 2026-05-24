@@ -1,5 +1,5 @@
-<div *ngIf="loading"
-     class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark bg-opacity-50">
+@if (loading) {
+<div class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark bg-opacity-50">
 
   <div class="spinner-border text-light"
        role="status">
@@ -11,3 +11,4 @@
   </div>
 
 </div>
+}
