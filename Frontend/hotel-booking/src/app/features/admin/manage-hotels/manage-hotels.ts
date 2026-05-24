@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-manage-hotels',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './manage-hotels.html'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './manage-hotels.html',
+  styleUrl: './manage-hotels.css'
 })
 export class ManageHotelsComponent {
   hotels = [

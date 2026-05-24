@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './dashboard.html'
+  templateUrl: './dashboard.html',
+  styleUrl: './dashboard.css'
 })
 export class AdminDashboardComponent {
   systemMetrics = [

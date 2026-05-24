@@ -1,6 +1,6 @@
 import { CanActivateFn } from '@angular/router';
 import { inject } from '@angular/core';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 export const customerGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);

@@ -9,7 +9,7 @@ import { API_CONSTANTS } from '../constants/api.constants';
 export class Auth {
   private apiUrl = API_CONSTANTS.BASE_URL;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
     return this.http.post(
@@ -35,6 +35,12 @@ export class Auth {
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
+  }
+
+  getCurrentUser(): any {
+    const user = localStorage.getItem('user');
+
+    return user ? JSON.parse(user) : null;
   }
 
   logout(): void {

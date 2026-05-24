@@ -1,0 +1,86 @@
+.admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.admin-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #1a202c;
+  font-weight: 700;
+}
+
+.admin-header p {
+  margin: 0.5rem 0 0 0;
+  color: #718096;
+  font-size: 0.95rem;
+}
+
+.table-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.admin-table thead {
+  background: linear-gradient(90deg, #f7fafc 0%, #edf2f7 100%);
+  border-bottom: 2px solid #cbd5e0;
+}
+
+.admin-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: #2d3748;
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+.badge-ui {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-ok {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.badge-warn {
+  background: #feebc8;
+  color: #7c2d12;
+}

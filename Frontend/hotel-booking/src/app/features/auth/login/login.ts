@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // <-- For *ngIf
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-login', // (or your specific component selector)
-  standalone: true,      // (Ensure this is true if using standalone)
+  selector: 'app-login',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule
+  ],
   templateUrl: './login.html',
-  styleUrls: ['./login.css'],
-  imports: [CommonModule, ReactiveFormsModule] // <-- Add both here
+  styleUrls: ['./login.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm!: FormGroup;
   loading = false;
   errorMessage = '';
@@ -29,16 +33,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
+
     if (this.loginForm.invalid) return;
 
     this.loading = true;
     this.errorMessage = '';
 
     const payload = this.loginForm.value;
+
     console.log('Login Form Submitted Data:', payload);
 
-    // TODO: Connect to shared authService once your teammate pushes core
-    // Temporary simulation for front-end validation testing:
     setTimeout(() => {
       this.loading = false;
       alert('Local Form Validation Passed! Ready for API Integration.');

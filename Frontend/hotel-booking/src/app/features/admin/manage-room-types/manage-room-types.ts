@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-manage-room-types',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './manage-room-types.html'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './manage-room-types.html',
+  styleUrl: './manage-room-types.css'
 })
 export class ManageRoomTypesComponent {
   roomTypes = [

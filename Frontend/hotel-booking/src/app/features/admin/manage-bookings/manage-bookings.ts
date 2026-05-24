@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-manage-bookings',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './manage-bookings.html'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './manage-bookings.html',
+  styleUrl: './manage-bookings.css'
 })
 export class ManageBookingsComponent {
   bookingsMaster = [

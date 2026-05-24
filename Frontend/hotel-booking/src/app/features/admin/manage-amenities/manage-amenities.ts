@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-manage-amenities',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './manage-amenities.html'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './manage-amenities.html',
+  styleUrl: './manage-amenities.css'
 })
 export class ManageAmenitiesComponent {
   amenities = [

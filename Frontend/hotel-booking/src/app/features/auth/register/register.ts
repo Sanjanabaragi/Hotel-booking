@@ -1,21 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RouterModule
-  ],
+  standalone: true,                          // <-- Add this
   templateUrl: './register.html',
-  styleUrls: ['./register.css']
+  styleUrls: ['./register.css'],
+  imports: [CommonModule, ReactiveFormsModule] // <-- Add this
 })
 export class RegisterComponent implements OnInit {
-
   registerForm!: FormGroup;
   loading = false;
   successMessage = '';
@@ -30,7 +24,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
-    }, { validators: this.passwordMatchValidator });
+    }, { validator: this.passwordMatchValidator });
   }
 
   passwordMatchValidator(g: FormGroup) {
@@ -42,10 +36,16 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) return;
 
     this.loading = true;
+    this.errorMessage = '';
+    this.successMessage = '';
 
+    const payload = this.registerForm.value;
+    console.log('Registration Form Submitted Data:', payload);
+
+    // Simulated standalone behavior
     setTimeout(() => {
       this.loading = false;
-      this.successMessage = 'Registration successful!';
+      this.successMessage = 'Local Validation Passed! Registration logic active.';
     }, 1000);
   }
 }

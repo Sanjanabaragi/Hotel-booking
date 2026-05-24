@@ -1,8 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-loader',
-  templateUrl: './loader.html'
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './loader.html',
+  styleUrls: ['./loader.css']
 })
 export class LoaderComponent {
 

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin-reports',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './reports.html'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './reports.html',
+  styleUrl: './reports.css'
 })
 export class ReportsComponent {
   kpis = [
